@@ -2,8 +2,7 @@ use std::error::Error;
 use std::ffi::CString;
 use std::fs::File;
 use std::io::{BufReader, Read, Write};
-use visa_rs::Instrument;
-use visa_rs::{flags::AccessMode, DefaultRM, TIMEOUT_IMMEDIATE};
+use visa_rs::{flags::AccessMode, DefaultRM, Instrument, TIMEOUT_IMMEDIATE};
 
 fn query(mut instr: &Instrument, query: &[u8]) -> Result<String, Box<dyn Error>> {
     instr.write_all(query)?;
